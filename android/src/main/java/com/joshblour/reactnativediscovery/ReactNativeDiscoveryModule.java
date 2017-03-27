@@ -33,11 +33,11 @@ public class ReactNativeDiscoveryModule extends ReactContextBaseJavaModule imple
 
     private static Discovery mDiscovery;
     private static ParcelUuid mDiscoveryUUID;
-    private static Activity mActivity;
 
-    public ReactNativeDiscoveryModule(ReactApplicationContext reactContext, Activity activity) {
+    public ReactNativeDiscoveryModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        mActivity = activity;
+        final ReactApplicationContext ctx = reactContext;  // Not sure if needed.
+        ctx.addLifecycleEventListener(this);  // Not sure if needed.
     }
 
     @Override
@@ -53,7 +53,6 @@ public class ReactNativeDiscoveryModule extends ReactContextBaseJavaModule imple
     public void initialize(String uuid, String username) {
         mDiscoveryUUID = ParcelUuid.fromString(uuid);
         mDiscovery =  new Discovery(getReactApplicationContext(), mDiscoveryUUID, username, Discovery.DIStartOptions.DIStartNone, this);
-        this.mActivity.getApplication().registerActivityLifecycleCallbacks(this);
     }
 
 
