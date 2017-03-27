@@ -1,4 +1,4 @@
-# Discovery
+# Discovery  
 Discover nearby devices using BLE.
 
 React native implementation of https://github.com/omergul123/Discovery
