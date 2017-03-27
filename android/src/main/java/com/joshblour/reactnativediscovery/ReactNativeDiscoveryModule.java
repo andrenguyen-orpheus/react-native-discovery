@@ -36,8 +36,6 @@ public class ReactNativeDiscoveryModule extends ReactContextBaseJavaModule imple
 
     public ReactNativeDiscoveryModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        final ReactApplicationContext ctx = reactContext;  // Not sure if needed.
-        ctx.addLifecycleEventListener(this);  // Not sure if needed.
     }
 
     @Override
