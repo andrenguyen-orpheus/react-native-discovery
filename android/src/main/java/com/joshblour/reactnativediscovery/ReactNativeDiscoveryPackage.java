@@ -1,6 +1,5 @@
 package com.joshblour.reactnativediscovery;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
@@ -19,16 +18,13 @@ import java.util.List;
 
 public class ReactNativeDiscoveryPackage implements ReactPackage {
 
-    private Activity mActivity;
-
-    public ReactNativeDiscoveryPackage(Activity activityContext) {
-        mActivity = activityContext;
+    public ReactNativeDiscoveryPackage() {
     }
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new ReactNativeDiscoveryModule(reactContext, mActivity));
+        modules.add(new ReactNativeDiscoveryModule(reactContext));
         return modules;    }
 
     @Override
